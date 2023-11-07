@@ -21,7 +21,7 @@ import Notifications from 'vue-notification'
 Vue.use(Notifications)
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('create-user', require('./components/CreateUser.vue').default);
-Vue.component('show-user', require('./components/Showuser.vue').default);
+Vue.component('show-user', require('./components/ShowUser.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
