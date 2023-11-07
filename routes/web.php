@@ -29,8 +29,8 @@ Route::group(['middleware' => ['auth:web']], function () {
     Route::delete('destroy/{id}', 'ClientController@destroy');
 
     // transaksi
-    Route::get("show/{id}", 'transaksiController@show');
-    Route::post("simpanTrx", 'transaksiController@simpanTrx');
-    Route::get("claim/{id}", 'transaksiController@claim');
+    Route::get("show/{id}", 'TransaksiController@show');
+    Route::post("simpanTrx", 'TransaksiController@simpanTrx');
+    Route::get("claim/{id}", 'TransaksiController@claim');
 });
 
