@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    THE PARFUM
+                    ANEKA WANGI
                 </div>
             </div>
         </div>
