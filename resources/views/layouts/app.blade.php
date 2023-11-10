@@ -45,7 +45,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         @if (Auth::user())
-                            <li class="nav-item active">
+                            <li class="nav-item">
                                 <a class="nav-link" href="/cs">Mamasok Data<span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
