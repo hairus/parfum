@@ -35,6 +35,9 @@
                         <button class="btn btn-sm btn-danger" onclick="hapus({{ $data->id }})">
                             <i class="fa-solid fa-trash"></i>
                         </button>
+                        <button class="btn btn-sm btn-primary" onclick="hapusStempel({{ $data->id }})">
+                            <i class="fa-solid fa-person-circle-minus"></i>
+                        </button>
 
                     </td>
                 </tr>

@@ -32,5 +32,7 @@ Route::group(['middleware' => ['auth:web']], function () {
     Route::get("show/{id}", 'TransaksiController@show');
     Route::post("simpanTrx", 'TransaksiController@simpanTrx');
     Route::get("claim/{id}", 'TransaksiController@claim');
+    Route::get("hapusStempel/{id}", 'TransaksiController@hapusStempel');
+    Route::post("hapusStempel", 'TransaksiController@hapusStempel1');
 });
 

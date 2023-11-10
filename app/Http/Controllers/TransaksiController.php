@@ -45,7 +45,7 @@ class TransaksiController extends Controller
         $transaksi = transaksi::where('client_id', $id)->orderBy('jumlah', 'ASC')->take(10)->get();
 
 
-        for($x = 1; $x <= 10; $x++){
+        for ($x = 1; $x <= 10; $x++) {
 
             $trx = transaksi::where([
                 "client_id" => $id,
@@ -62,12 +62,12 @@ class TransaksiController extends Controller
         }
         // cek dulu di tabel claim
         $cek_claim = claim::where('client_id', $id)->first();
-        if(!$cek_claim){
+        if (!$cek_claim) {
             $sim_claim = claim::create([
                 "client_id" => $id,
                 "claim" => 1
             ]);
-        }else{
+        } else {
             $add = claim::where('client_id', $id)->orderBy('claim', 'DESC')->first();
             $sim_claim = claim::create([
                 "client_id" => $id,
@@ -77,16 +77,32 @@ class TransaksiController extends Controller
 
         // jika ada jumlah yang lebih dari 10 maka di reset lagi ke 1
         $cek = transaksi::where("client_id", $id)->where('jumlah', '>=', 10)->first();
-        if($cek)
-        {
-            for($x = 1; $x <= 10; $x++){
+        if ($cek) {
+            for ($x = 1; $x <= 10; $x++) {
                 $update = transaksi::where("client_id", $id)->where('jumlah', '>=', 10)->orderBy('jumlah')->first();
-                if($update){
+                if ($update) {
                     $update->jumlah = $x;
                     $update->update();
                 }
-
             }
+        }
+    }
+
+    public function hapusStempel($id)
+    {
+        $client = client::find($id);
+        return view('transaksi.hapusStempel', compact('client'));
+    }
+
+    public function hapusStempel1(Request $request)
+    {
+        $trx = transaksi::where('client_id', $request->id)->count();
+        if ($trx > 0) {
+            for ($x = 0; $x < $request->jum; $x++) {
+                $transaksi = transaksi::where("client_id", $request->id)->orderBy('id', "DESC")->first();
+                $transaksi->delete();
+            }
+            return;
         }
     }
 }

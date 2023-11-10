@@ -143,5 +143,35 @@
                 }
             })
         }
+
+        function hapusStempel(id){
+            $.ajax({
+                url: "/hapusStempel/" + id,
+                type: "GET",
+                success: function(data) {
+                    $('#transaksi').html(data);
+                    $('#hapModal').modal('show');
+                }
+            })
+        }
+
+        function runningHapus(){
+            const id = $('#id').val();
+            const jum = $('#trx').val();
+            $.ajax({
+                url: "/hapusStempel",
+                type: "POST",
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    jum: jum,
+                    id: id
+                },
+                success: function(data) {
+                    console.log(data);
+                    $('#hapModal').modal('hide');
+                    getData()
+                }
+            })
+        }
     </script>
 @endsection
