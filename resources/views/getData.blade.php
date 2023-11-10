@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <table id="example" class="table table-bordered">
+    <table id="example" class="table table-bordered table-hover">
         <thead>
             <th>No</th>
             <th>Name</th>
